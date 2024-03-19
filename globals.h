@@ -4,6 +4,8 @@
 #define SCREEN_WIDTH 320
 #define SCREEN_HEIGHT 240
 
+#define CHAR_BASE 0x09000000
+
 #define C_BLACK 0x0000 //eventually find a way to convert from rbg to this
 #define C_WHITE 0xFFFF
 

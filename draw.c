@@ -77,3 +77,7 @@ void drawHollowRect(VideoStruct* v, int x, int y, int width, int height, unsigne
         drawPixel(v, x + width - 1, y + i, colour);
     }
 }
+
+void drawChar(VideoStruct* v, int x, int y, char c){
+    *(char *)(CHAR_BASE + SCREEN_HEIGHT *y +x) = c;
+}

@@ -16,7 +16,7 @@ void drawLine(VideoStruct *v, int x1, int y1, int x2, int y2, unsigned short col
 void drawRect(VideoStruct *v, int x, int y, int width, int height, unsigned short color);
 void drawHollowRect(VideoStruct *v, int x, int y, int width, int height, unsigned short color);
 
-void drawChar(VideoStruct *v, int x, int y, char ch, unsigned short color);
+void drawChar(VideoStruct *v, int x, int y, char ch);
 
 
 
