@@ -6,6 +6,8 @@
 
 #define CHAR_BASE 0x09000000
 
+#define VIDEO_BASE 0xFF203020
+
 #define C_BLACK 0x0000 //eventually find a way to convert from rbg to this
 #define C_WHITE 0xFFFF
 
