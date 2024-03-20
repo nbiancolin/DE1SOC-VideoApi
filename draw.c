@@ -3,6 +3,8 @@
 #include "globals.h"
 #include "helper.h"
 
+#include <stdlib.h>
+
 void clearScreen(VideoStruct* v){
     //uses pointer arithmetic for better speed
     unsigned short* ptr = (unsigned short*)v->backBuffer;
@@ -33,10 +35,10 @@ void smartClear(VideoStruct* v, int* points){
 }
 
 
-void drawPixel(VideoStruct* v, int x, int y, unsigned short colour){
-    if(x < 0 || x >= SCREEN_WIDTH || y < 0 || y >= SCREEN_HEIGHT){
-        return;
-    }
+static inline void drawPixel(VideoStruct* v, int x, int y, unsigned short colour){ //removing error checking bc fuck it it will throw an error and someone will catch it
+    //if(x < 0 || x >= SCREEN_WIDTH || y < 0 || y >= SCREEN_HEIGHT){
+    //    return;
+    //}
     v->backBuffer->pixels[y][x] = colour;
 }
 void drawLine(VideoStruct* v, int x1, int y1, int x2, int y2, unsigned short colour){
@@ -80,4 +82,16 @@ void drawHollowRect(VideoStruct* v, int x, int y, int width, int height, unsigne
 
 void drawChar(VideoStruct* v, int x, int y, char c){
     *(char *)(CHAR_BASE + SCREEN_HEIGHT *y +x) = c;
+}
+
+void drawString(VideoStruct* v, int x, int y, char* str){
+    while(*str){
+        drawChar(v, x, y, *str++);
+        x += 8;
+    }
+}
+
+void drawImage(VideoStruct* v, unsigned short image[SCREEN_HEIGHT][SCREEN_WIDTH]){
+    //point the backBuffer to the image
+    v->backBuffer->pixels = image;
 }
