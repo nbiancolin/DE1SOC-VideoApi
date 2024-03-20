@@ -20,5 +20,6 @@
 
 
 #define uint32 unsigned int
+#define uWord unsigned short
 
 #endif /*GLOBALS_H*/

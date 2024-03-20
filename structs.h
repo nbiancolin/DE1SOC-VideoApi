@@ -6,16 +6,16 @@
 //#define uint32 unsigned int
 //#define uWord unsigned short
 
-typedef struct frameBuffer {
-    unsigned short volatile (*pixels)[SCREEN_WIDTH];
-} fb_t;
+struct fb_t {
+    unsigned short volatile pixels[256][512]; //don't ask me why its like this, it just is...
+};
 
-typedef struct videoStruct {
-    fb_t *volatile frontBuffer; 
-    fb_t *volatile backBuffer; 
-    unsigned int volatile resolution; 
-    unsigned int volatile StatusControl;
-} VideoStruct;
+struct videoStruct {
+    struct fb_t *volatile fbp; 
+    struct fb_t *volatile bfbp; 
+    uint32 volatile resolution; 
+    uint32 volatile StatusControl;
+};
 
 
 #endif /*STRUCTS_H*/
