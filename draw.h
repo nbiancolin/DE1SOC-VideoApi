@@ -22,4 +22,8 @@ void drawLine(void* v, int x0, int y0, int x1, int y1, int color);
 //draws a filled rectangle
 void drawRect(void* v, int x_i, int y_i, int width, int height, uWord c);
 
+//Goes through character buffer and draws the characters
+void drawChar(int x, int y, char c);
+
+void drawString(int x, int y, char* str);
 #endif /*DRAW_H*/

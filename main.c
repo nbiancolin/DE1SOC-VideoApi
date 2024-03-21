@@ -5,6 +5,7 @@ int main() {
     // Call the functions from draw.h
 
     struct videoStruct volatile *const vp = ((struct videoStruct *) VIDEO_BASE);
+    
     clearScreen(vp);
 	fillScreen(vp, 0xFFF0);
 	drawHLine(vp, 0x0000, 20);

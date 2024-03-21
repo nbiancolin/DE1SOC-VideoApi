@@ -1,5 +1,7 @@
 #include "globals.h"
 #include "structs.h"
+#include "draw.h"
+#include "helper.h"
 #include <stdbool.h>
 #include <stdlib.h>
 
@@ -80,3 +82,23 @@ static inline void drawPixel(void* v, int x, int y, uWord C){
     framebuffer->pixels[y][x] = C;
 }
 
+void drawChar(int x, int y, char c){
+    volatile char* cBuffer = (char *)CHAR_BASE;
+	int offset = (y << 7) +x;
+	*(cBuffer + offset) = c;
+}
+
+void drawString(int x, int y, char* str){
+    while(*str){
+        drawChar(x++, y, *str);
+        //wraparound checking just in case
+        if(x > 79){
+            x = 0;
+            y++;
+        } 
+        if(y > 59){
+            y = 0;
+        }
+        str++;
+    }
+}
