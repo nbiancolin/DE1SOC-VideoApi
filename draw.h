@@ -12,7 +12,7 @@ void clearScreen();
 void fillScreen(uWord c);
 
 //draws a single pixel (not really used anywhere but incase you need it)
-static inline void drawPixel(int x, int y, uWord C);
+static inline void drawPixel(int x, int y, uWord c);
 
 //draw horizontal line
 void drawHLine(uWord c, int y);

@@ -77,9 +77,9 @@ void drawRect(int x_i, int y_i, int width, int height, uWord c){
 }
 
 
-static inline void drawPixel(int x, int y, uWord C){
+static inline void drawPixel(int x, int y, uWord c){
     //struct fb_t* framebuffer = ((struct videoStruct*)v)->fbp;
-    VIDEO_BASE->fbp->pixels[y][x] = C;
+    VIDEO_BASE->fbp->pixels[y][x] = c;
 }
 
 void drawChar(int x, int y, char c){
